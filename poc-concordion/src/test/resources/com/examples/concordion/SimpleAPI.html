@@ -1,0 +1,42 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Prueba de API Simple con Concordion</h1>
+
+	<h4>Ejemplo básico llamada a Api: <a href="http://md5.jsontest.com/">http://md5.jsontest.com/</a></h4>
+	<p><i>A partir de un texto de entrada devuelve el hash en md5</i></p>
+
+	<p>
+		Dado el texto <b concordion:set="#text">london</b><br /> el hash en
+		md5 de este texto debe ser <span
+			concordion:assertEquals="getMd5(#text)">bc180dbc583491c00f8a1cd134f7517b</span>
+	</p>
+
+	<h4>Mismo ejemplo con tabla para probar diferentes escenarios de prueba a la vez</h4>
+
+	<p>
+		<table concordion:execute="#textoMd5 = getMd5(#textInTable)">
+			<tr>
+				<th concordion:set="#textInTable">Texto de entrada</th>
+				<th concordion:assertEquals="#textoMd5">Hash en MD5</th>
+			</tr>
+			<tr>
+				<td>prueba</td>
+				<td>c893bad68927b457dbed39460e6afd62</td>
+			</tr>
+			<tr>
+				<td>otra prueba</td>
+				<td>f429853206c2021ed37d71de16ed27c8</td>
+			</tr>
+			<tr>
+				<td>prueba error</td>
+				<td>prueba error</td>
+			</tr>
+		</table>
+	</p>
+	
+</body>
+</html>

@@ -1,0 +1,46 @@
+<html xmlns:concordion="http://www.concordion.org/2007/concordion">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	<h1>Prueba de API con Concordion</h1>
+
+	<h3>Ejemplo complejo Api</h3>
+
+
+	<p>
+		Dada la ciudad de <b concordion:set="#place">london,uk</b><br /> la
+		temperatura máxima deberá ser <span
+			concordion:assertEquals="getMaxTempWhether(#place)">4.06</span>
+	</p>
+	
+	<p>
+		Dadas las siguientes ciudades, la temperatura máxima para mñaana debe ser menor de <b concordion:set="#maxDegrees">10</b>:
+			<table concordion:execute="#result = checkTemperature(#textInTable, #maxDegrees)">
+			<tr>
+				<th concordion:set="#textInTable">Texto de entrada</th>
+				<th concordion:assertTrue="#result">Está por debajo de 10º </th>
+			</tr>
+			<tr>
+				<td>Madrid, ES</td>
+				<td>Temperatura por debajo del límite</td>
+			</tr>
+			<tr>
+				<td>Oslo, NW</td>
+				<td>Temperatura por debajo del límite</td>
+			</tr>
+			<tr>
+				<td>Moscow, RS</td>
+				<td>Temperatura por debajo del límite</td>
+			</tr>
+		</table>
+		
+		
+	</p>
+
+
+
+	
+</body>
+</html>
